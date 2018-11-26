@@ -7,6 +7,9 @@
  ****************************************************************/
 function getBookById(bookId, books) {
   // Your code goes here
+
+  return books.find(found => found.id === bookId);
+  //return books.filter(id => id === bookId);
 }
 
 /**************************************************************
@@ -18,6 +21,9 @@ function getBookById(bookId, books) {
  ****************************************************************/
 function getAuthorByName(authorName, authors) {
   // Your code goes here
+  return authors.find(
+    found => found.name.toUpperCase() === authorName.toUpperCase()
+  );
 }
 
 /**************************************************************
@@ -28,6 +34,11 @@ function getAuthorByName(authorName, authors) {
  ****************************************************************/
 function bookCountsByAuthor(authors) {
   // Your code goes here
+  let arr = [];
+  authors.forEach(tmp =>
+    arr.push({ author: tmp.name, bookCount: tmp.books.length })
+  );
+  return arr;
 }
 
 /**************************************************************
@@ -39,7 +50,25 @@ function bookCountsByAuthor(authors) {
  ****************************************************************/
 function booksByColor(books) {
   const colors = {};
+  let c = [];
+  for (let i = 0; i > 0; i++){
+    let tmpC = books[i].color;
+    let tmpT = books[i].title;
+    if (tmpC in colors){
+     
 
+    }
+    c = tmpC;
+    c.forEach(books.push(c.title)
+
+    colors = {tmpC : [tmpT]}
+
+  }
+  );
+  
+  
+  
+  //colors = c.push(title);
   // Your code goes here
 
   return colors;
@@ -121,13 +150,13 @@ module.exports = {
  * want to manually test your code
  */
 
-// const authors = require("./authors.json");
-// const books = require("./books.json");
+const authors = require("./authors.json");
+const books = require("./books.json");
 
-// console.log(getBookById(12, books));
-// console.log(getAuthorByName("J.K. Rowling", authors));
-// console.log(bookCountsByAuthor(authors));
-// console.log(booksByColor(books));
+console.log(getBookById(12, books));
+console.log(getAuthorByName("J.K. Rowling", authors));
+console.log(bookCountsByAuthor(authors));
+console.log(booksByColor(books));
 // console.log(titlesByAuthorName("George R.R. Martin", authors, books));
 // console.log(mostProlificAuthor(authors));
 // console.log(relatedBooks(50, authors, books));
